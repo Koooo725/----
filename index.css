@@ -711,6 +711,11 @@
      float: right;
  }
 
+ .ct-page-ctrl .btn:hover {
+     filter: brightness(0.5);
+     /* 变暗（值小于1会变暗，大于1会变亮） */
+ }
+
  .ct-page-ctrl #btn-prev {
      background-image: url(image/btn-left.png);
      margin-right: 8px;
@@ -722,6 +727,8 @@
      width: 22px;
      height: 22px;
  }
+
+
 
  .ct-page-ctrl #btn-next {
      background-image: url(image/btn-right.png);
@@ -741,8 +748,9 @@
      -moz-transition: margin 1s ease-in-out;
      -ms-transition: margin 1s ease-in-out;
      -o-transition: margin 1s ease-in-out; */
-     transition: margin 1s ease-in-out;
+     transition: transform 1s ease-in-out;
  }
+
 
  /* #ct-hours #ls-weather-hour {
      display: flex;

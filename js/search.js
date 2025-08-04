@@ -23,3 +23,22 @@ document.querySelector('#i-location').addEventListener('blur', e => {
         ls_match.style.display = 'none'
     }, 500);
 })
+
+// 切换每小时天气预报
+let moveLength = 0
+const hourWeather = document.querySelector('#ct-weather')
+document.querySelector('#btn-next').addEventListener('click', () => {
+    moveLength -= 1100
+    if (moveLength <= -1400) {
+        moveLength = -1400
+    }
+    hourWeather.style.transform = `translateX(${moveLength}px)`
+})
+document.querySelector('#btn-prev').addEventListener('click', () => {
+    moveLength += 1100
+    if (moveLength >= 0) {
+        moveLength = 0
+    }
+    hourWeather.style.transform = `translateX(${moveLength}px)`
+})
+
