@@ -183,15 +183,30 @@
  }
 
  #header-search #ls-match {
-     display: none;
-     top: 28px;
-     overflow: auto;
+     position: absolute;
+     width: 100%;
+     top: 45px;
+     overflow-y: auto;
+     scrollbar-width: none;
+     -ms-overflow-style: none;
      background: #fff;
      box-shadow: 0 0 4px 0 rgba(0, 0, 0, .15);
      border-radius: 5px;
      max-height: 210px;
      margin-top: 4px;
-     padding: 8px;
+     padding: 0 8px 0 8px;
+     z-index: 11;
+ }
+
+ #header-search #ls-match li {
+     line-height: 30px;
+     list-style: none;
+     font-size: 12px;
+     height: 30px;
+     padding: 20px 5px;
+     margin-top: -5px;
+     cursor: pointer;
+     user-select: none;
  }
 
  #header-search #ct-hot-city {
@@ -202,8 +217,7 @@
      background: #fff;
      box-shadow: 0 0 4px 0 rgba(0, 0, 0, .15);
      border-radius: 5px;
-     margin-top: 4px;
-     padding: 20px 0 10px;
+     padding: 8px 6px;
      z-index: 10;
  }
 
