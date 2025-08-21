@@ -94,17 +94,18 @@
      margin-top: 22px;
  }
 
- #header-attension {
-     display: none;
+ #header-attention {
+     /* display: none; */
      position: absolute;
      width: 418px;
      min-height: 86px;
      background: #fff;
      left: 8px;
-     top: 38px;
+     top: 58px;
      box-shadow: 0 0 4px 0 rgba(0, 0, 0, .1);
      border-radius: 5px;
      padding: 17px 0;
+     z-index: 10;
  }
 
  #header-attention #titl {
@@ -117,9 +118,80 @@
  }
 
  #header-attention #ls-attention {
-     /* display: none; */
+
      text-align: left;
      margin-top: 15px;
+ }
+
+ #header-attention #ls-attention .city {
+     height: 32px;
+     line-height: 32px;
+     padding-left: 20px;
+     font-size: 14px;
+     color: #555;
+     letter-spacing: 0;
+     display: flex;
+     align-items: center;
+ }
+
+ #header-attention #ls-attention .city:hover {
+     background-color: #f4f4f4
+ }
+
+ #header-attention #ls-attention .city:hover .btn {
+     display: inline-block;
+     vertical-align: middle
+ }
+
+ .city:hover .btn-set-default:not(.hidden),
+ .city:hover .btn-cancel:not(.hidden) {
+     display: inline-block;
+     /* 仅显示未被hidden的按钮 */
+ }
+
+ #header-attention #ls-attention .city:hover .mark {
+     display: none
+ }
+
+
+
+ #header-attention #ls-attention .city .ct-location {
+
+     /* float: left; */
+     width: 146px;
+     /* width: auto; */
+     /* 自适应宽度 */
+     display: flex;
+     align-items: center;
+     gap: 5px;
+     /* 城市名和按钮间距 */
+ }
+
+ /* #header-attention #ls-attention .city .location {
+     display: inline-block;
+
+
+ } */
+
+ /* 清除浮动 */
+ /* #header-attention #ls-attention .city::after {
+     content: "";
+     display: table;
+     clear: both;
+ } */
+
+ #header-attention #ls-attention .city .mark {
+     display: inline-block;
+     border: 1px solid #63b6f6;
+     border-radius: 3px;
+     margin-left: 5px;
+     font-size: 12px;
+     color: #63b6f6;
+     height: 18px;
+     line-height: 18px;
+     text-align: center;
+     padding: 0 4px;
+     cursor: pointer;
  }
 
  #header-attention #tips-attention {
@@ -128,6 +200,56 @@
      text-align: center;
      line-height: 20px;
  }
+
+ .hidden {
+     display: none !important;
+ }
+
+ #header-attention #ls-attention .city .btn-cancel,
+ #header-attention #ls-attention .city .btn-set-default {
+     display: none;
+     font-size: 12px;
+     color: #777;
+     background: #f7f7f7;
+     border: 1px solid #cecece;
+     border-radius: 4px;
+     height: 18px;
+     line-height: 18px;
+     padding: 0 4px;
+     margin-left: 5px;
+     cursor: pointer;
+ }
+
+ #header-attention #ls-attention .city .icon {
+     display: inline-block;
+     height: 20px;
+     width: 20px;
+     vertical-align: middle;
+ }
+
+ #header-attention #ls-attention .city .weather {
+     display: inline-block;
+     width: 116px;
+ }
+
+ #header-attention #ls-attention .city .temperature {
+     display: inline-block;
+     width: 66px;
+     text-align: right;
+ }
+
+ #header-attention #ls-attention .city .btn-delete {
+     height: 15px;
+     width: 15px;
+     margin-top: -3px;
+     margin-left: 12px;
+     background-image: url(image/delete.png);
+ }
+
+ #header-attention #ls-attention .city .btn {
+     display: none;
+ }
+
 
  #btn-attention {
      display: none;
@@ -141,8 +263,8 @@
  #tips-attention-size {
      display: none;
      position: absolute;
-     right: 229px;
-     top: 51px;
+     right: 391px;
+     top: 57px;
      font-size: 12px;
      color: #9f9f9f;
      height: 27px;
@@ -152,6 +274,7 @@
      background: #fff;
      box-shadow: 0 0 4px 0 rgba(0, 0, 0, .1);
      border-radius: 5px;
+     z-index: 13;
  }
 
  #header-search {
@@ -233,13 +356,26 @@
  }
 
  #header-search #ct-hot-city #cur-location {
-     display: none;
+     position: relative;
+     float: left;
      height: 14px;
      line-height: 14px;
      cursor: pointer;
      margin-bottom: 24px;
      float: left;
-     margin-left: 20px;
+     margin-left: 10px;
+ }
+
+ #cur-location:after {
+     position: absolute;
+     top: 0;
+     right: -20px;
+     content: ' ';
+     /* float: right; */
+     height: 16px;
+     width: 16px;
+     background-image: url(image/location.png);
+     filter: brightness(50%);
  }
 
  #header-search #ct-hot-city #ct-history {
@@ -280,12 +416,42 @@
      clear: both;
  }
 
+ #header-search #ct-hot-city #ct-history #ls-history li {
+     float: left;
+     width: 25%;
+     height: 28px;
+     line-height: 28px;
+     cursor: pointer;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     box-sizing: border-box;
+     margin-bottom: 5px;
+ }
+
  #header-search #ct-hot-city .ls-city {
      clear: both;
      margin: 0 2px 0 16px;
  }
 
  #header-search #ct-hot-city .ls-city .opts {
+     float: left;
+     width: 25%;
+     height: 28px;
+     line-height: 28px;
+     cursor: pointer;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     box-sizing: border-box;
+ }
+
+ #header-search #ls-historyy .ls-city {
+     clear: both;
+     margin: 0 2px 8px 16px;
+ }
+
+ #header-search #ls-history li {
      float: left;
      width: 25%;
      height: 28px;
@@ -877,7 +1043,7 @@
  #ct-7-days {
      float: left;
      width: 740px;
-     height: 492px;
+     height: 503px;
      padding: 20px 0 0;
      border-radius: 10px;
      background-color: #fff;

@@ -727,39 +727,39 @@ function getLifeIndex(locationID) {
 }
 
 
-fetch('http://ip-api.com/json')
-    .then(response => response.json())
-    .then(data => {
-        // console.log(data.lat.toFixed(2))
-        // console.log(data.lon.toFixed(2))
+// fetch('http://ip-api.com/json')
+//     .then(response => response.json())
+//     .then(data => {
+//         // console.log(data.lat.toFixed(2))
+//         // console.log(data.lon.toFixed(2))
 
-        const lat = data.lat.toFixed(2)
-        const lon = data.lon.toFixed(2)
+//         const lat = data.lat.toFixed(2)
+//         const lon = data.lon.toFixed(2)
 
-        axios({
-            url: 'https://nk2k5mxenn.re.qweatherapi.com/geo/v2/city/lookup',
-            method: 'GET',
-            params: {
-                key: 'f921a06325ca426b87162dcab439a0f3',
-                location: `${lon},${lat} `
-            },
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        }).then(result => {
-            // console.log(result.data.location)
-            const cObj = result.data.location
-            document.querySelector('#txt-cur-location').innerHTML = `${cObj[0].adm1} ${cObj[0].adm2}`
-            const locationStr = `<p id="cur-location" class="match" data-province="${cObj[0].adm1}" data-city="${cObj[0].adm2}" data-id="${cObj[0].id}"
-                            style="display: block;">
-                            ${cObj[0].adm2}</p>`
-            document.querySelector('#cur-location').innerHTML = locationStr
-            getCurrentWeather(cObj[0].id)
-            getHourWeather(cObj[0].id)
-            getSevenDaysWeather(cObj[0].id)
-            getLifeIndex(cObj[0].id)
-        })
-    })
+//         axios({
+//             url: 'https://nk2k5mxenn.re.qweatherapi.com/geo/v2/city/lookup',
+//             method: 'GET',
+//             params: {
+//                 key: 'f921a06325ca426b87162dcab439a0f3',
+//                 location: `${lon},${lat} `
+//             },
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Accept': 'application/json'
+//             }
+//         }).then(result => {
+//             // console.log(result.data.location)
+//             const cObj = result.data.location
+//             document.querySelector('#txt-cur-location').innerHTML = `${cObj[0].adm1} ${cObj[0].adm2}`
+//             const locationStr = `<p id="cur-location" class="match" data-province="${cObj[0].adm1}" data-city="${cObj[0].adm2}" data-id="${cObj[0].id}"
+//                             style="display: block;">
+//                             ${cObj[0].adm2}</p>`
+//             document.querySelector('#cur-location').innerHTML = locationStr
+//             getCurrentWeather(cObj[0].id)
+//             getHourWeather(cObj[0].id)
+//             getSevenDaysWeather(cObj[0].id)
+//             getLifeIndex(cObj[0].id)
+//         })
+//     })
 
 
